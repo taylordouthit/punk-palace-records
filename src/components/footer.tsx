@@ -14,14 +14,11 @@ import {
   FlexList,
   Box,
   Space,
-  NavLink,
   Text,
   IconLink,
   VisuallyHidden,
   HomepageLink,
 } from "./ui"
-import BrandLogo from "./brand-logo"
-import * as styles from "./footer.css"
 
 const socialMedia = {
   TWITTER: {
@@ -112,14 +109,9 @@ export default function Footer() {
   const { links, meta, socialLinks, copyright } = data.layout.footer
 
   return (
-    <Box as="footer" paddingY={4} className={styles.footer}>
+    <Box as="footer">
       <Container>
-        <Flex variant="start" responsive>
-          <NavLink to="/">
-            <VisuallyHidden>Home</VisuallyHidden>
-            <BrandLogo />
-          </NavLink>
-          <Space />
+        <Flex variant="center" responsive>
           <FlexList>
             {socialLinks &&
               socialLinks.map((link) => {
@@ -138,28 +130,9 @@ export default function Footer() {
           </FlexList>
         </Flex>
         <Space size={5} />
-        <Flex variant="start" responsive>
-          <FlexList variant="start" responsive>
-            {links &&
-              links.map((link) => (
-                <li key={link.id}>
-                  <NavLink to={link.href}>{link.text}</NavLink>
-                </li>
-              ))}
-          </FlexList>
-          <Space />
-          <FlexList>
-            {meta &&
-              meta.map((link) => (
-                <li key={link.id}>
-                  <NavLink to={link.href}>
-                    <Text variant="small">{link.text}</Text>
-                  </NavLink>
-                </li>
-              ))}
-          </FlexList>
-          <Text variant="small">{copyright}</Text>
-        </Flex>
+        <Text center variant="small">
+          {copyright}
+        </Text>
       </Container>
       <Space size={3} />
     </Box>

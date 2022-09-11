@@ -338,7 +338,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       title: String
       description: String
       image: HomepageImage
-      html: String!
+      content: [HomepageBlock]
     }
   `)
 

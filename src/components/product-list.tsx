@@ -9,11 +9,12 @@ import {
   Heading,
   Subhead,
   Box,
-  Icon,
   LinkList,
   HomepageImage,
   HomepageLink,
+  Space,
 } from "./ui"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 interface ProductProps {
   id: string
@@ -27,12 +28,12 @@ function Product(props: ProductProps) {
   return (
     <Box center>
       {props.image && (
-        <Icon
+        <GatsbyImage
           alt={props.image.alt}
           image={props.image.gatsbyImageData}
-          size="large"
         />
       )}
+      <Space size={3} />
       <Subhead>{props.heading}</Subhead>
       <Text>{props.text}</Text>
       <LinkList links={props.links} />
